@@ -33,7 +33,7 @@ if(isset($_POST['login']))
                                 //social network id SNID then we pass the token without hashing then the current time then itll be valid for one week only
                                 //'/' means its availble for any location
                                 //null means availbe for any domain and any type of connection
-                                setcookie("SNID",$token, time() + 60*60*24*7, '/', NULL ,TURE, TRUE);
+                                setcookie("SNID",$token, time() + 60*60*24*7, '/', NULL ,NULL, TRUE);
                 }
                 //else its worng pass
               else  {  echo 'Incorrect Password!';  }
