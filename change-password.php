@@ -2,6 +2,7 @@
 include('./classes/DB.php');
 include('./classes/Login.php');
 $tokenIsValid = False;
+// if u are normally logged in u can change password
 if (Login::isLoggedIn()) {
 
         if (isset($_POST['changepassword'])) {
@@ -31,7 +32,9 @@ if (Login::isLoggedIn()) {
 
         }
 
-} else {
+}
+//if u r not logged in then u have to generate a token from a valid email
+ else {
         if (isset($_GET['token'])) {
         $token = $_GET['token'];
         if (DB::query('SELECT user_id FROM password_tokens WHERE token=:token', array(':token'=>sha1($token)))) {
@@ -43,7 +46,7 @@ if (Login::isLoggedIn()) {
                         $newpasswordrepeat = $_POST['newpasswordrepeat'];
 
                                 if ($newpassword == $newpasswordrepeat) {
-
+//if successfully changed password delete the token
                                         if (strlen($newpassword) >= 6 && strlen($newpassword) <= 60) {
 
                                                 DB::query('UPDATE users SET password=:newpassword WHERE id=:userid', array(':newpassword'=>password_hash($newpassword, PASSWORD_BCRYPT), ':userid'=>$userid));
@@ -52,7 +55,7 @@ if (Login::isLoggedIn()) {
                                         }
 
                                 } else {
-                                        echo 'Passwords don\'t match!';
+                                        echo 'Passwords dont match!';
                                 }
 
                         }
@@ -67,6 +70,7 @@ if (Login::isLoggedIn()) {
 }
 
 ?>
+
 <h1>Change your Password</h1>
 <form action="<?php if (!$tokenIsValid) { echo 'change-password.php'; } else { echo 'change-password.php?token='.$token.''; } ?>" method="post">
         <?php if (!$tokenIsValid) { echo '<input type="password" name="oldpassword" value="" placeholder="Current Password ..."><p />'; } ?>
