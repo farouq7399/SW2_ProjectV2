@@ -1,0 +1,41 @@
+- var pageTitle = "LoginPage";
+
+doctype html
+html(lang="en")
+  head
+    include includes/meta.pug
+    include includes/style.pug
+    title #{pageTitle}
+  body.bg-light
+    .container.w-25.mt-5.shadow-sm
+      .card.px-2
+        img.card-img-top(src="/img/Logo.jpg", alt="MISSING JPG", class="mx-auto border-bottom", style="width: 15rem")
+        form(class="was-validated container")
+          .my-3
+            label(for="email") Email Address
+            input(type="email", class="form-control shadow-sm", id="email", placeholder="Enter email" required)
+            .valid-feedback valid
+            .invalid-feedback Please enter valid email
+
+          .mb-3
+            label(for="email") Password
+            input(type="password", class="form-control shadow-sm", id="email", placeholder="Password" required)
+            .valid-feedback valid
+            .invalid-feedback Please enter valid password
+          .my-3
+            button(class="btn container" type="submit") <span>Submit </span>
+        .mb-3.mx-auto 
+          a(href="#") Forgot your email or password?
+
+
+//- p for padding, m for margin, t for top, x for right and left
+//- shadow-sm for small shadow
+//- mx-auto adds margin-left and margin-right: auto
+//- form-control have a width of 100%.
+//- text-muted faded text styled
+
+//- use later
+//- .col-auto.my-1
+//- input(type="checkbox" class="custom-control-input" id="control")
+//- label(class="custom-control-label mt-2 ml-4" for="control") Remember my preference
+//- small(id="emailHelp",class="form-text text-muted") we'll never share your email with anyone else.

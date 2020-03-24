@@ -1,0 +1,42 @@
+form {
+  label {
+    color: #0a4068;
+  }
+  .my-3 button {
+    background-color: #0a4068;
+    color: white;
+    transition-duration: 0.5s;
+    &:hover {
+      background-color: #e23a28;
+      color: white;
+    }
+    span {
+      position: relative;
+      transition: 0.5s;
+      &:after {
+        content: "\00bb";
+        position: absolute;
+        opacity: 0;
+        top: -2px;
+        right: -20px;
+        transition: 0.5s;
+      }
+    }
+    &:hover span {
+      padding-right: 15px;
+      &:after {
+        opacity: 1;
+        right: 0;
+      }
+    }
+  }
+}
+a {
+  font-size: 15px;
+  color: #a19c9c;
+  transition: 0.5s;
+  &:hover {
+    text-decoration: none;
+    color: #e23a28;
+  }
+}
