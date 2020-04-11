@@ -1,0 +1,407 @@
+@charset "UTF-8";
+nav .nav-active:before, nav .nav-active:after, form .error, form input::-webkit-input-placeholder, form .form-username label,
+form .form-password label,
+form .form-email label, form .send span {
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+nav .nav-active:before, nav .nav-active:after, form .error, form input:-ms-input-placeholder, form .form-username label,
+form .form-password label,
+form .form-email label, form .send span {
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+nav .nav-active:before, nav .nav-active:after, form .error, form input::-ms-input-placeholder, form .form-username label,
+form .form-password label,
+form .form-email label, form .send span {
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+nav .nav-active:before, nav .nav-active:after, form .error, form input::placeholder, form .form-username label,
+form .form-password label,
+form .form-email label, form .send span {
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+nav {
+  float: right;
+}
+
+nav a {
+  color: #b8b8b8;
+  display: inline-block;
+  margin: 15px;
+  position: relative;
+  text-decoration: none;
+  padding: 10px 0;
+}
+
+nav .nav-link:before {
+  content: attr(data-text);
+  color: #0a4068;
+  position: absolute;
+  left: 0;
+  top: 3px;
+  padding: 5px 0;
+  width: 0%;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  border-top: 2px solid #0a4068;
+  border-radius: 7px;
+  white-space: nowrap;
+}
+
+nav .nav-link:hover:before {
+  width: 100%;
+}
+
+nav .nav-active {
+  background-color: #0a4068;
+  padding: 7px;
+  border-radius: 7px;
+  position: relative;
+  color: white;
+}
+
+nav .nav-active:before, nav .nav-active:after {
+  content: "";
+  background-color: inherit;
+  width: 20%;
+  height: 2px;
+  position: absolute;
+  border-radius: inherit;
+}
+
+nav .nav-active:before {
+  top: -6px;
+  left: 0;
+}
+
+nav .nav-active:after {
+  bottom: -6px;
+  right: 0;
+}
+
+nav .nav-active:hover {
+  -webkit-animation: pulse 0.5s infinite;
+          animation: pulse 0.5s infinite;
+}
+
+nav .nav-active:hover:before, nav .nav-active:hover:after {
+  width: 100%;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: url(../img/BG4.jpg) no-repeat;
+}
+
+.logo {
+  margin: 23% 0 0 13%;
+}
+
+form {
+  float: right;
+  margin: 3% -23% 0 0;
+  padding: 20px;
+  width: 40%;
+}
+
+form h1 {
+  text-align: center;
+  color: #0a4068;
+  font-size: 50px;
+}
+
+form .error {
+  padding: 10px;
+  height: 50px;
+  width: 80%;
+  background-color: white;
+  color: #c22210;
+  margin: 15px auto 0 auto;
+  border-radius: 7px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  border: 1.5px solid #0a4068;
+}
+
+form input {
+  padding-left: 40px;
+  margin: 10px 1% 20px 0;
+  width: 100%;
+  height: 50px;
+  border: none;
+  border: 1.5px solid #0a4068;
+  border-radius: 7px;
+  color: #0a4068;
+  font-size: 15px;
+}
+
+form input:focus {
+  outline: none;
+}
+
+form input::-webkit-input-placeholder {
+  color: #0a4068;
+  opacity: 0.5;
+}
+
+form input:-ms-input-placeholder {
+  color: #0a4068;
+  opacity: 0.5;
+}
+
+form input::-ms-input-placeholder {
+  color: #0a4068;
+  opacity: 0.5;
+}
+
+form input::placeholder {
+  color: #0a4068;
+  opacity: 0.5;
+}
+
+form input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+form input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+form input:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+form input:focus::placeholder {
+  color: transparent;
+}
+
+form input:focus + label {
+  position: absolute;
+  left: 0;
+  top: -15px;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  opacity: 0.7;
+}
+
+form .form-username,
+form .form-password,
+form .form-email {
+  position: relative;
+}
+
+form .form-username:before,
+form .form-password:before,
+form .form-email:before {
+  content: "";
+  font-family: FontAwesome;
+  font-weight: 600;
+  color: #0a4068;
+  position: absolute;
+  top: 25px;
+  left: 15px;
+}
+
+form .form-username label,
+form .form-password label,
+form .form-email label {
+  position: absolute;
+  left: 0;
+  top: -15px;
+  opacity: 0;
+  color: #0a4068;
+}
+
+form .form-email:before {
+  content: "";
+}
+
+form .form-username:before {
+  content: "";
+}
+
+form .form-password:before {
+  content: "";
+}
+
+form button {
+  background-color: transparent;
+  border: 1.5px solid #0a4068;
+  width: 12%;
+  color: #0a4068;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  height: 50px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0a4068;
+  color: white;
+}
+
+form button:focus {
+  outline: none;
+}
+
+form .visible-button {
+  border: 1.5px solid white;
+  color: white;
+}
+
+form .visible-button:hover {
+  color: #0a4068;
+  background-color: white;
+}
+
+form .visible-input {
+  width: 86%;
+}
+
+form .send {
+  width: 38%;
+  font-size: 20px;
+}
+
+form .send span {
+  display: inline-block;
+  position: relative;
+}
+
+form .send span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -8px;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+form .send:hover span {
+  padding-right: 25px;
+}
+
+form .send:hover span:after {
+  opacity: 1;
+  right: 0;
+  color: white;
+}
+
+form .send:disabled:hover span {
+  padding-right: 0;
+}
+
+form .send:disabled:hover span:after {
+  opacity: 0;
+  right: 0;
+}
+
+form .send:disabled:hover {
+  cursor: not-allowed;
+  background-color: white;
+  color: #0a4068;
+}
+
+form .forget {
+  text-decoration: none;
+  color: #0a4068;
+  font-size: 15px;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+form .forget:hover {
+  opacity: 0.5;
+}
+
+@media only screen and (max-width: 1300px) {
+  .logo {
+    width: 225px;
+    height: 300px;
+    margin: 25% 0 0 15%;
+  }
+  form {
+    margin: 8% -35% 0 0;
+  }
+}
+
+@media only screen and (max-width: 1203px) {
+  .logo {
+    width: 202.5px;
+    height: 270px;
+    margin: 25% 0 0 12%;
+  }
+  form {
+    margin: 8% -20% 0 0;
+  }
+  form h1 {
+    margin-left: -10%;
+  }
+  form input {
+    width: 90%;
+  }
+  form .visible-input {
+    width: 73%;
+  }
+  form .visible-button {
+    border: 1.5px solid #0a4068;
+    color: #0a4068;
+    width: 15%;
+  }
+  form .visible-button:hover {
+    color: white;
+    background-color: #0a4068;
+  }
+  form .send {
+    width: 90%;
+  }
+  form .forget {
+    margin-left: 80px;
+    font-size: 17px;
+  }
+}
+/*# sourceMappingURL=log_reg.css.map */
