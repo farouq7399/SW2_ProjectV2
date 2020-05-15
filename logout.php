@@ -32,6 +32,6 @@ if (isset($_POST['confirm'])) {
 
 <h1>Log Out </h1>
 <form action="logout.php" method="post">
-  <input type="checkbox" name="alldevices" value="alldevices"> Log out of all devices?<br /><p />
+  <input type="checkbox" name="alldevices" value="alldevices"> Log out of all devices?<br /><p/>
   <input type="submit" name="confirm" value="Confirm">
 </form>
