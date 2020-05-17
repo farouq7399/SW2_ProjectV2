@@ -13,8 +13,8 @@ if (isset($_GET['username'])) {
                 $verified = DB::query('SELECT verified FROM users WHERE username=:username', array(':username'=>$_GET['username']))[0]['verified'];
                 $followerid = Login::isLoggedIn();
 
-                
-                //check if user is following the other user 
+
+                //check if user is following the other user
                 if (isset($_POST['follow'])) {
 
                         if ($userid != $followerid) {
@@ -77,7 +77,7 @@ if (isset($_GET['username'])) {
 
                 $dbposts = DB::query('SELECT * FROM posts WHERE user_id=:userid ORDER BY id DESC', array(':userid'=>$userid));
                 $posts = "";
-                //print privous posts 
+                //print privous posts
                 foreach($dbposts as $p) {
                         $posts .= htmlspecialchars($p['body'])."
                         <form action='profile.php?username=$username&postid=".$p['id']."' method='post'>
