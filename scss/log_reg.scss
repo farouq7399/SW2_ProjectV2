@@ -1,222 +1,235 @@
 @import "variables";
 @import "extends";
-@import "header";
+//@import "header";
+@import "mixins";
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: url(../img/BG4.jpg) no-repeat;
+  /*background-image: url(../img/BG4.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;*/
 }
-
-.logo {
-  margin: 23% 0 0 13%;
-}
-
-form {
-  float: right;
-  margin: 3% -23% 0 0;
-  padding: 20px;
-  width: 40%;
-  h1 {
+.containers {
+  display: flex;
+  margin: 0 auto;
+  .left-container {
+    flex: 2;
+    background-color: $blues;
+    padding: 0;
+    height: 100vh;
     text-align: center;
-    color: $blues;
-    font-size: 50px;
-  }
-  .error {
-    padding: 10px;
-    height: 50px;
-    width: 80%;
-    background-color: white;
-    color: $reds;
-    margin: 15px auto 0 auto;
-    border-radius: $borderRd;
-    text-align: center;
-    font-size: 17px;
-    font-weight: 600;
-    border: 1.5px solid $blues;
-    @extend %transition;
-  }
-  input {
-    padding-left: 40px;
-    margin: 10px 1% 20px 0;
-    width: 100%;
-    height: 50px;
-    border: none;
-    border: 1.5px solid $blues;
-    border-radius: $borderRd;
-    color: $blues;
-    font-size: 15px;
-    &:focus {
-      outline: none;
+    .logo {
+      width: 25%;
+      margin-top: 50px;
     }
-    &::placeholder {
-      color: $blues;
-      opacity: 0.5;
-      @extend %transition;
-    }
-    &:focus::placeholder {
-      color: transparent;
-    }
-    &:focus + label {
-      position: absolute;
-      left: 0;
-      top: -15px;
-      transition: 0.3s ease-in-out;
-      opacity: 0.7;
-    }
-  }
-  .form-username,
-  .form-password,
-  .form-email {
-    position: relative;
-    &:before {
-      content: "";
-      font-family: FontAwesome;
-      font-weight: 600;
-      color: $blues;
-      position: absolute;
-      top: 25px;
-      left: 15px;
-    }
-    label {
-      position: absolute;
-      left: 0;
-      top: -15px;
-      opacity: 0;
-      @extend %transition;
-      color: $blues;
-    }
-  }
-  @each $type, $icon in $icons {
-    .form-#{$type} {
-      &:before {
-        content: $icon;
+    .content {
+      margin: 15% 5%;
+      h2,
+      h3 {
+        color: #fff;
+        margin-bottom: 30px;
       }
-    }
-  }
-  button {
-    background-color: transparent;
-    border: 1.5px solid $blues;
-    width: 12%;
-    color: $blues;
-    transition: 0.2s ease-in-out;
-    height: 50px;
-    border-radius: $borderRd;
-    cursor: pointer;
-    &:hover {
-      background-color: $blues;
-      color: white;
-    }
-    &:focus {
-      outline: none;
-    }
-  }
-  .visible-button {
-    border: 1.5px solid white;
-    color: white;
-    &:hover {
-      color: $blues;
-      background-color: white;
-    }
-  }
-  .visible-input {
-    width: 86%;
-  }
-  .send {
-    width: 38%;
-    font-size: 20px;
-    span {
-      display: inline-block;
-      position: relative;
-      @extend %transition;
-      &:after {
-        content: "\00bb";
-        position: absolute;
-        opacity: 0;
-        top: 0;
-        right: -8px;
-        transition: 0.2s ease-in-out;
+      h2 {
+        font-weight: bold;
+        font-size: 50px;
       }
-    }
-    &:hover span {
-      padding-right: 25px;
-    }
-    &:hover span:after {
-      opacity: 1;
-      right: 0;
-      color: white;
-    }
-    &:disabled {
-      &:hover span {
-        padding-right: 0;
+      h3 {
+        font-weight: 300;
+        font-size: 25px;
       }
-      &:hover span:after {
-        opacity: 0;
-        right: 0;
-      }
-      &:hover {
-        cursor: not-allowed;
-        background-color: white;
-        color: $blues;
-      }
-    }
-  }
-  .forget {
-    text-decoration: none;
-    color: $blues;
-    font-size: 15px;
-    transition: 0.3s ease-in-out;
-    &:hover {
-      opacity: 0.5;
-    }
-  }
-}
-
-@media only screen and (max-width: 1300px) {
-  .logo {
-    width: 225px;
-    height: 300px;
-    margin: 25% 0 0 15%;
-  }
-  form {
-    margin: 8% -35% 0 0;
-  }
-}
-@media only screen and (max-width: 1203px) {
-  .logo {
-    width: 202.5px;
-    height: 270px;
-    margin: 25% 0 0 12%;
-  }
-  form {
-    margin: 8% -20% 0 0;
-    h1 {
-      margin-left: -10%;
-    }
-    input {
-      width: 90%;
-    }
-    .visible-input {
-      width: 73%;
-    }
-    .visible-button {
-      border: 1.5px solid $blues;
-      color: $blues;
-      width: 15%;
-      &:hover {
-        color: white;
+      button {
+        width: 50%;
+        font-size: 20px;
+        border-radius: 50px;
+        height: 50px;
+        cursor: pointer;
         background-color: $blues;
+        border: 1px solid #fff;
+        color: #fff;
+        @extend %transition;
+        &:hover {
+          background-color: #fff;
+          border: 1px solid $blues;
+          color: $blues;
+        }
       }
     }
-    .send {
-      width: 90%;
-    }
-    .forget {
-      margin-left: 80px;
-      font-size: 17px;
+  }
+  .right-container {
+    flex: 3;
+    padding: 0;
+    height: 100vh;
+    text-align: center;
+    form {
+      width: 60%;
+      margin: 200px auto 0 auto;
+      text-align: center;
+      h1 {
+        color: $blues;
+        font-size: 45px;
+        margin-bottom: 20px;
+      }
+      .error {
+        padding: 10px;
+        height: 40px;
+        width: 70%;
+        background-color: white;
+        color: $reds;
+        margin: 15px auto 0 auto;
+        border-radius: $borderRd;
+        text-align: center;
+        font-size: 15px;
+        font-weight: 600;
+        border: 1.5px solid $reds;
+        @extend %transition;
+      }
+      input {
+        padding-left: 40px;
+        margin: 10px 1% 20px 0;
+        width: 100%;
+        height: 50px;
+        border: none;
+        border: 1.5px solid $blues;
+        border-radius: $borderRd;
+        color: $blues;
+        font-size: 15px;
+        &:focus {
+          outline: none;
+        }
+        &::placeholder {
+          color: $blues;
+          opacity: 0.5;
+          @extend %transition;
+        }
+        &:focus::placeholder {
+          color: transparent;
+        }
+        &:focus + label {
+          position: absolute;
+          left: 0;
+          top: -15px;
+          transition: 0.3s ease-in-out;
+          opacity: 0.7;
+        }
+      }
+      .form-username,
+      .form-password,
+      .form-email {
+        position: relative;
+        &:before {
+          content: "";
+          font-family: FontAwesome;
+          font-weight: 600;
+          color: $blues;
+          position: absolute;
+          top: 25px;
+          left: 15px;
+        }
+        label {
+          position: absolute;
+          left: 0;
+          top: -15px;
+          opacity: 0;
+          @extend %transition;
+          color: $blues;
+        }
+      }
+      @each $type, $icon in $icons {
+        .form-#{$type} {
+          &:before {
+            content: $icon;
+          }
+        }
+      }
+      button {
+        background-color: transparent;
+        border: 1.5px solid $blues;
+        width: 12%;
+        color: $blues;
+        transition: 0.2s ease-in-out;
+        height: 50px;
+        border-radius: $borderRd;
+        cursor: pointer;
+        &:hover {
+          background-color: $blues;
+          color: white;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+      .visible-button {
+        border: 1.5px solid $blues;
+        color: $blues;
+        &:hover {
+          color: #fff;
+          background-color: $blues;
+        }
+      }
+      .visible-input {
+        width: 86%;
+      }
+      .send {
+        width: 50%;
+        font-size: 20px;
+        margin-bottom: 10px;
+        border-radius: 50px;
+        display: inline-block;
+        span {
+          display: inline-block;
+          position: relative;
+          @extend %transition;
+          &:after {
+            content: "\00bb";
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -8px;
+            transition: 0.2s ease-in-out;
+          }
+        }
+        &:hover span {
+          padding-right: 25px;
+        }
+        &:hover span:after {
+          opacity: 1;
+          right: 0;
+          color: white;
+        }
+        &:disabled {
+          &:hover span {
+            padding-right: 0;
+          }
+          &:hover span:after {
+            opacity: 0;
+            right: 0;
+          }
+          &:hover {
+            cursor: not-allowed;
+            background-color: white;
+            color: $blues;
+          }
+        }
+      }
+      .forget {
+        text-decoration: none;
+        color: $blues;
+        font-size: 17px;
+        transition: 0.3s ease-in-out;
+        display: inline-block;
+        &:hover {
+          opacity: 0.5;
+        }
+      }
     }
   }
 }
+
+@import "media";

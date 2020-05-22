@@ -1,4 +1,4 @@
-- var pageTitle = "LoginPage";
+- var pageTitle = "Sign up";
 
 doctype html
 html(lang="en")
@@ -7,34 +7,36 @@ html(lang="en")
     include includes/style.pug
     title #{pageTitle}
   body
+
     #emad-app
-      nav
-        a(class="nav-link" href="#", data-text="Home Page") Home Page
-        a(class="nav-link" href="#", data-text="About Us") About Us
-        a(class="nav-link" href="#", data-text="Contact Us") Contact Us
-        a(class="nav-active" href="registrationPage.html", data-text="Registration") Registration
-        a(class="nav-link" href="loginPage.html") Login
-      img(class="logo", src="../img/logo2.png",alt="Logo", width="240px", height="320px")
-      form(action="", method="post", @submit="validateForm")
-        h1 Registration
-        .form-email
-          input(type="text", name="email", autocomplete="off", placeholder="Type Your Email", v-model="email")
-          label Your Email
-        .form-username
-          input(type="text", name="userName", autocomplete="off", placeholder="Type Your Username", v-model="userName")
-          label Your Username
-        .form-password
-          input(class="visible-input" :type="fieldType", autocomplete="off", name="password", placeholder="Type Your Password", v-model="password")
-          label Your Password
-          button(class="visible-button", @click.prevent="switchField" @click="selected = !selected")
-            span(v-if="!selected")
-              i(class="fas fa-eye fa-s")
-            span(v-else="selected")
-              i(class="fas fa-eye-slash fa-s")
-        button(class="send", type="submit" :disabled="!userName || !password || !email")
-          span Login
-        <br>
-        a(class="forget", href="#") Forgot your email or password?
-        .error(v-for="error in formErrors") {{ error }}
+      .containers
+        .left-container
+          img(class="logo", src="../img/logoWhite.png",alt="Logo")
+          .content
+            h2 Hello, Friend!
+            h3 Enter your personal info, to start a journey with us.
+            a(href="loginPage.html")
+              button(type="submit") Sign in
+        .right-container
+          form(action="", method="post", @submit="validateForm")
+            h1 Sign up
+            .form-email
+              input(type="text", name="email", autocomplete="off", placeholder="Type Your Email", v-model="email")
+              label Your Email
+            .form-username
+              input(type="text", name="userName", autocomplete="off", placeholder="Type Your Username", v-model="userName")
+              Label Your Username
+            .form-password
+              input(class="visible-input" :type="fieldType", autocomplete="off", name="password", placeholder="Type Your Password", v-model="password")
+              Label Your Password
+              button(class="visible-button", @click.prevent="switchField" @click="selected = !selected")
+                span(v-if="!selected")
+                  i(class="fas fa-eye fa-s")
+                span(v-else="selected")
+                  i(class="fas fa-eye-slash fa-s")
+            button(class="send", type="submit" :disabled="!userName || !password")
+              span Sign up
+            <br>
+            .error(v-for="error in formErrors") {{ error }}
 
     include includes/scripts.pug

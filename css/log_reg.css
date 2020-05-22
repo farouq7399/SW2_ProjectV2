@@ -1,171 +1,139 @@
 @charset "UTF-8";
-nav .nav-active:before, nav .nav-active:after, form .error, form input::-webkit-input-placeholder, form .form-username label,
-form .form-password label,
-form .form-email label, form .send span {
+.containers .left-container .content button, .containers .right-container form .error, .containers .right-container form input::-webkit-input-placeholder, .containers .right-container form .form-username label,
+.containers .right-container form .form-password label,
+.containers .right-container form .form-email label, .containers .right-container form .send span {
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
 }
-nav .nav-active:before, nav .nav-active:after, form .error, form input:-ms-input-placeholder, form .form-username label,
-form .form-password label,
-form .form-email label, form .send span {
+.containers .left-container .content button, .containers .right-container form .error, .containers .right-container form input:-ms-input-placeholder, .containers .right-container form .form-username label,
+.containers .right-container form .form-password label,
+.containers .right-container form .form-email label, .containers .right-container form .send span {
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
 }
-nav .nav-active:before, nav .nav-active:after, form .error, form input::-ms-input-placeholder, form .form-username label,
-form .form-password label,
-form .form-email label, form .send span {
+.containers .left-container .content button, .containers .right-container form .error, .containers .right-container form input::-ms-input-placeholder, .containers .right-container form .form-username label,
+.containers .right-container form .form-password label,
+.containers .right-container form .form-email label, .containers .right-container form .send span {
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
 }
-nav .nav-active:before, nav .nav-active:after, form .error, form input::placeholder, form .form-username label,
-form .form-password label,
-form .form-email label, form .send span {
+.containers .left-container .content button, .containers .right-container form .error, .containers .right-container form input::placeholder, .containers .right-container form .form-username label,
+.containers .right-container form .form-password label,
+.containers .right-container form .form-email label, .containers .right-container form .send span {
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
-}
-
-nav {
-  float: right;
-}
-
-nav a {
-  color: #b8b8b8;
-  display: inline-block;
-  margin: 15px;
-  position: relative;
-  text-decoration: none;
-  padding: 10px 0;
-}
-
-nav .nav-link:before {
-  content: attr(data-text);
-  color: #0a4068;
-  position: absolute;
-  left: 0;
-  top: 3px;
-  padding: 5px 0;
-  width: 0%;
-  display: inline-block;
-  overflow: hidden;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  border-top: 2px solid #0a4068;
-  border-radius: 7px;
-  white-space: nowrap;
-}
-
-nav .nav-link:hover:before {
-  width: 100%;
-}
-
-nav .nav-active {
-  background-color: #0a4068;
-  padding: 7px;
-  border-radius: 7px;
-  position: relative;
-  color: white;
-}
-
-nav .nav-active:before, nav .nav-active:after {
-  content: "";
-  background-color: inherit;
-  width: 20%;
-  height: 2px;
-  position: absolute;
-  border-radius: inherit;
-}
-
-nav .nav-active:before {
-  top: -6px;
-  left: 0;
-}
-
-nav .nav-active:after {
-  bottom: -6px;
-  right: 0;
-}
-
-nav .nav-active:hover {
-  -webkit-animation: pulse 0.5s infinite;
-          animation: pulse 0.5s infinite;
-}
-
-nav .nav-active:hover:before, nav .nav-active:hover:after {
-  width: 100%;
-}
-
-@-webkit-keyframes pulse {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  50% {
-    -webkit-transform: scale(0.9);
-            transform: scale(0.9);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
-
-@keyframes pulse {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  50% {
-    -webkit-transform: scale(0.9);
-            transform: scale(0.9);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
 }
 
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: url(../img/BG4.jpg) no-repeat;
+  /*background-image: url(../img/BG4.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;*/
 }
 
-.logo {
-  margin: 23% 0 0 13%;
+.containers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
 }
 
-form {
-  float: right;
-  margin: 3% -23% 0 0;
-  padding: 20px;
-  width: 40%;
-}
-
-form h1 {
+.containers .left-container {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  background-color: #0a4068;
+  padding: 0;
+  height: 100vh;
   text-align: center;
-  color: #0a4068;
+}
+
+.containers .left-container .logo {
+  width: 25%;
+  margin-top: 50px;
+}
+
+.containers .left-container .content {
+  margin: 15% 5%;
+}
+
+.containers .left-container .content h2,
+.containers .left-container .content h3 {
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.containers .left-container .content h2 {
+  font-weight: bold;
   font-size: 50px;
 }
 
-form .error {
-  padding: 10px;
+.containers .left-container .content h3 {
+  font-weight: 300;
+  font-size: 25px;
+}
+
+.containers .left-container .content button {
+  width: 50%;
+  font-size: 20px;
+  border-radius: 50px;
   height: 50px;
-  width: 80%;
+  cursor: pointer;
+  background-color: #0a4068;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.containers .left-container .content button:hover {
+  background-color: #fff;
+  border: 1px solid #0a4068;
+  color: #0a4068;
+}
+
+.containers .right-container {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  padding: 0;
+  height: 100vh;
+  text-align: center;
+}
+
+.containers .right-container form {
+  width: 60%;
+  margin: 200px auto 0 auto;
+  text-align: center;
+}
+
+.containers .right-container form h1 {
+  color: #0a4068;
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+.containers .right-container form .error {
+  padding: 10px;
+  height: 40px;
+  width: 70%;
   background-color: white;
   color: #c22210;
   margin: 15px auto 0 auto;
   border-radius: 7px;
   text-align: center;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 600;
-  border: 1.5px solid #0a4068;
+  border: 1.5px solid #c22210;
 }
 
-form input {
+.containers .right-container form input {
   padding-left: 40px;
   margin: 10px 1% 20px 0;
   width: 100%;
@@ -177,47 +145,47 @@ form input {
   font-size: 15px;
 }
 
-form input:focus {
+.containers .right-container form input:focus {
   outline: none;
 }
 
-form input::-webkit-input-placeholder {
+.containers .right-container form input::-webkit-input-placeholder {
   color: #0a4068;
   opacity: 0.5;
 }
 
-form input:-ms-input-placeholder {
+.containers .right-container form input:-ms-input-placeholder {
   color: #0a4068;
   opacity: 0.5;
 }
 
-form input::-ms-input-placeholder {
+.containers .right-container form input::-ms-input-placeholder {
   color: #0a4068;
   opacity: 0.5;
 }
 
-form input::placeholder {
+.containers .right-container form input::placeholder {
   color: #0a4068;
   opacity: 0.5;
 }
 
-form input:focus::-webkit-input-placeholder {
+.containers .right-container form input:focus::-webkit-input-placeholder {
   color: transparent;
 }
 
-form input:focus:-ms-input-placeholder {
+.containers .right-container form input:focus:-ms-input-placeholder {
   color: transparent;
 }
 
-form input:focus::-ms-input-placeholder {
+.containers .right-container form input:focus::-ms-input-placeholder {
   color: transparent;
 }
 
-form input:focus::placeholder {
+.containers .right-container form input:focus::placeholder {
   color: transparent;
 }
 
-form input:focus + label {
+.containers .right-container form input:focus + label {
   position: absolute;
   left: 0;
   top: -15px;
@@ -226,15 +194,15 @@ form input:focus + label {
   opacity: 0.7;
 }
 
-form .form-username,
-form .form-password,
-form .form-email {
+.containers .right-container form .form-username,
+.containers .right-container form .form-password,
+.containers .right-container form .form-email {
   position: relative;
 }
 
-form .form-username:before,
-form .form-password:before,
-form .form-email:before {
+.containers .right-container form .form-username:before,
+.containers .right-container form .form-password:before,
+.containers .right-container form .form-email:before {
   content: "";
   font-family: FontAwesome;
   font-weight: 600;
@@ -244,9 +212,9 @@ form .form-email:before {
   left: 15px;
 }
 
-form .form-username label,
-form .form-password label,
-form .form-email label {
+.containers .right-container form .form-username label,
+.containers .right-container form .form-password label,
+.containers .right-container form .form-email label {
   position: absolute;
   left: 0;
   top: -15px;
@@ -254,19 +222,19 @@ form .form-email label {
   color: #0a4068;
 }
 
-form .form-email:before {
+.containers .right-container form .form-email:before {
   content: "";
 }
 
-form .form-username:before {
+.containers .right-container form .form-username:before {
   content: "";
 }
 
-form .form-password:before {
+.containers .right-container form .form-password:before {
   content: "";
 }
 
-form button {
+.containers .right-container form button {
   background-color: transparent;
   border: 1.5px solid #0a4068;
   width: 12%;
@@ -278,40 +246,43 @@ form button {
   cursor: pointer;
 }
 
-form button:hover {
+.containers .right-container form button:hover {
   background-color: #0a4068;
   color: white;
 }
 
-form button:focus {
+.containers .right-container form button:focus {
   outline: none;
 }
 
-form .visible-button {
-  border: 1.5px solid white;
-  color: white;
-}
-
-form .visible-button:hover {
+.containers .right-container form .visible-button {
+  border: 1.5px solid #0a4068;
   color: #0a4068;
-  background-color: white;
 }
 
-form .visible-input {
+.containers .right-container form .visible-button:hover {
+  color: #fff;
+  background-color: #0a4068;
+}
+
+.containers .right-container form .visible-input {
   width: 86%;
 }
 
-form .send {
-  width: 38%;
+.containers .right-container form .send {
+  width: 50%;
   font-size: 20px;
+  margin-bottom: 10px;
+  border-radius: 50px;
+  display: inline-block;
 }
 
-form .send span {
+.containers .right-container form .send span {
   display: inline-block;
   position: relative;
 }
 
-form .send span:after {
+.containers .right-container form .send span:after {
   content: "\00bb";
   position: absolute;
   opacity: 0;
@@ -321,87 +292,72 @@ form .send span:after {
   transition: 0.2s ease-in-out;
 }
 
-form .send:hover span {
+.containers .right-container form .send:hover span {
   padding-right: 25px;
 }
 
-form .send:hover span:after {
+.containers .right-container form .send:hover span:after {
   opacity: 1;
   right: 0;
   color: white;
 }
 
-form .send:disabled:hover span {
+.containers .right-container form .send:disabled:hover span {
   padding-right: 0;
 }
 
-form .send:disabled:hover span:after {
+.containers .right-container form .send:disabled:hover span:after {
   opacity: 0;
   right: 0;
 }
 
-form .send:disabled:hover {
+.containers .right-container form .send:disabled:hover {
   cursor: not-allowed;
   background-color: white;
   color: #0a4068;
 }
 
-form .forget {
+.containers .right-container form .forget {
   text-decoration: none;
   color: #0a4068;
-  font-size: 15px;
+  font-size: 17px;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
+  display: inline-block;
 }
 
-form .forget:hover {
+.containers .right-container form .forget:hover {
   opacity: 0.5;
 }
 
-@media only screen and (max-width: 1300px) {
-  .logo {
-    width: 225px;
-    height: 300px;
-    margin: 25% 0 0 15%;
-  }
-  form {
-    margin: 8% -35% 0 0;
+/* Small Devices => Landscape Phones */
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
   }
 }
 
-@media only screen and (max-width: 1203px) {
-  .logo {
-    width: 202.5px;
-    height: 270px;
-    margin: 25% 0 0 12%;
+/* Medium Devices => Tablets */
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
   }
-  form {
-    margin: 8% -20% 0 0;
+}
+
+/* All Devices Small Than Desktops */
+/* All Devices Small Than Tablets */
+/* Very Small Devices */
+/* Desktops */
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
   }
-  form h1 {
-    margin-left: -10%;
-  }
-  form input {
-    width: 90%;
-  }
-  form .visible-input {
-    width: 73%;
-  }
-  form .visible-button {
-    border: 1.5px solid #0a4068;
-    color: #0a4068;
-    width: 15%;
-  }
-  form .visible-button:hover {
-    color: white;
-    background-color: #0a4068;
-  }
-  form .send {
-    width: 90%;
-  }
-  form .forget {
-    margin-left: 80px;
-    font-size: 17px;
+}
+
+/* Large Screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
   }
 }
 /*# sourceMappingURL=log_reg.css.map */

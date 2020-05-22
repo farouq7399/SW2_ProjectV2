@@ -4,29 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../css/log_reg.css">
-    <title>LoginPage</title>
+    <title>Sign up</title>
   </head>
   <body>
     <div id="emad-app">
-      <nav><a class="nav-link" href="#" data-text="Home Page">Home Page</a><a class="nav-link" href="#" data-text="About Us">About Us</a><a class="nav-link" href="#" data-text="Contact Us">Contact Us</a><a class="nav-active" href="registrationPage.html" data-text="Registration">Registration</a><a class="nav-link" href="loginPage.html">Login</a></nav><img class="logo" src="../img/logo2.png" alt="Logo" width="240px" height="320px">
-      <form action="" method="post" @submit="validateForm">
-        <h1>Registration</h1>
-        <div class="form-email">
-          <input type="text" name="email" autocomplete="off" placeholder="Type Your Email" v-model="email">
-          <label>Your Email</label>
+      <div class="containers">
+        <div class="left-container"><img class="logo" src="../img/logoWhite.png" alt="Logo">
+          <div class="content">
+            <h2>Hello, Friend!</h2>
+            <h3>Enter your personal info, to start a journey with us.</h3><a href="loginPage.html">
+              <button type="submit">Sign in</button></a>
+          </div>
         </div>
-        <div class="form-username">
-          <input type="text" name="userName" autocomplete="off" placeholder="Type Your Username" v-model="userName">
-          <label>Your Username</label>
+        <div class="right-container">
+          <form action="" method="post" @submit="validateForm">
+            <h1>Sign up</h1>
+            <div class="form-email">
+              <input type="text" name="email" autocomplete="off" placeholder="Type Your Email" v-model="email">
+              <label>Your Email</label>
+            </div>
+            <div class="form-username">
+              <input type="text" name="userName" autocomplete="off" placeholder="Type Your Username" v-model="userName">
+              <Label>Your Username</Label>
+            </div>
+            <div class="form-password">
+              <input class="visible-input" :type="fieldType" autocomplete="off" name="password" placeholder="Type Your Password" v-model="password">
+              <Label>Your Password</Label>
+              <button class="visible-button" @click.prevent="switchField" @click="selected = !selected"><span v-if="!selected"><i class="fas fa-eye fa-s"></i></span><span v-else="selected"><i class="fas fa-eye-slash fa-s"></i></span></button>
+            </div>
+            <button class="send" type="submit" :disabled="!userName || !password"><span>Sign up</span></button><br>
+            <div class="error" v-for="error in formErrors">{{ error }}</div>
+          </form>
         </div>
-        <div class="form-password">
-          <input class="visible-input" :type="fieldType" autocomplete="off" name="password" placeholder="Type Your Password" v-model="password">
-          <label>Your Password</label>
-          <button class="visible-button" @click.prevent="switchField" @click="selected = !selected"><span v-if="!selected"><i class="fas fa-eye fa-s"></i></span><span v-else="selected"><i class="fas fa-eye-slash fa-s"></i></span></button>
-        </div>
-        <button class="send" type="submit" :disabled="!userName || !password || !email"><span>Login</span></button><br><a class="forget" href="#">Forgot your email or password?</a>
-        <div class="error" v-for="error in formErrors">{{ error }}</div>
-      </form>
+      </div>
     </div>
     <script src="../js/vue.js"></script>
     <script src="../js/website.js"></script>

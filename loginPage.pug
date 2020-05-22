@@ -1,4 +1,4 @@
-- var pageTitle = "LoginPage";
+- var pageTitle = "Sign in";
 
 doctype html
 html(lang="en")
@@ -8,30 +8,32 @@ html(lang="en")
     title #{pageTitle}
   body
     #emad-app
-      nav
-        a(class="nav-link" href="#", data-text="Home Page") Home Page
-        a(class="nav-link" href="#", data-text="About Us") About Us
-        a(class="nav-link" href="#", data-text="Contact Us") Contact Us
-        a(class="nav-link" href="registrationPage.html", data-text="Registration") Registration
-        a(class="nav-active" href="#") Login
-      img(class="logo", src="../img/logo2.png",alt="Logo", width="240px", height="320px")
-      form(action="", method="post", @submit="validateForm")
-        h1 Login
-        .form-username
-          input(type="text", name="userName", autocomplete="off", placeholder="Type Your Username", v-model="userName")
-          Label Your Username
-        .form-password
-          input(class="visible-input" :type="fieldType", autocomplete="off", name="password", placeholder="Type Your Password", v-model="password")
-          Label Your Password
-          button(class="visible-button", @click.prevent="switchField" @click="selected = !selected")
-            span(v-if="!selected")
-              i(class="fas fa-eye fa-s")
-            span(v-else="selected")
-              i(class="fas fa-eye-slash fa-s")
-        button(class="send", type="submit" :disabled="!userName || !password")
-          span Login
-        <br>
-        a(class="forget", href="#") Forgot your email or password?
-        .error(v-for="error in formErrors") {{ error }}
+      .containers
+        .left-container
+          img(class="logo", src="../img/logoWhite.png",alt="Logo")
+          .content
+            h2 Welcome Back!
+            h3 To keep connected with us, please login with your personal info.
+            a(href="registrationPage.html")
+              button(type="submit") Sign up
+        .right-container
+          form(action="", method="post", @submit="validateForm")
+            h1 Sign in
+            .form-username
+              input(type="text", name="userName", autocomplete="off", placeholder="Type Your Username", v-model="userName")
+              Label Your Username
+            .form-password
+              input(class="visible-input" :type="fieldType", autocomplete="off", name="password", placeholder="Type Your Password", v-model="password")
+              Label Your Password
+              button(class="visible-button", @click.prevent="switchField" @click="selected = !selected")
+                span(v-if="!selected")
+                  i(class="fas fa-eye fa-s")
+                span(v-else="selected")
+                  i(class="fas fa-eye-slash fa-s")
+            button(class="send", type="submit" :disabled="!userName || !password")
+              span Sign in
+            br
+            a(class="forget", href="resetPasswordPage.html") Forgot your email or password?
+            .error(v-for="error in formErrors") {{ error }}
 
     include includes/scripts.pug
