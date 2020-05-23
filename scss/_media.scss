@@ -1,0 +1,32 @@
+@include sm {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@include md {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@include xsToMd {
+}
+
+@include xsToSm {
+}
+
+@include xs {
+}
+
+@include lg {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@include xl {
+  .container {
+    max-width: 1140px;
+  }
+}

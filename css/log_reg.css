@@ -1,0 +1,363 @@
+@charset "UTF-8";
+.containers .left-container .content button, .containers .right-container form .error, .containers .right-container form input::-webkit-input-placeholder, .containers .right-container form .form-username label,
+.containers .right-container form .form-password label,
+.containers .right-container form .form-email label, .containers .right-container form .send span {
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+.containers .left-container .content button, .containers .right-container form .error, .containers .right-container form input:-ms-input-placeholder, .containers .right-container form .form-username label,
+.containers .right-container form .form-password label,
+.containers .right-container form .form-email label, .containers .right-container form .send span {
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+.containers .left-container .content button, .containers .right-container form .error, .containers .right-container form input::-ms-input-placeholder, .containers .right-container form .form-username label,
+.containers .right-container form .form-password label,
+.containers .right-container form .form-email label, .containers .right-container form .send span {
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+.containers .left-container .content button, .containers .right-container form .error, .containers .right-container form input::placeholder, .containers .right-container form .form-username label,
+.containers .right-container form .form-password label,
+.containers .right-container form .form-email label, .containers .right-container form .send span {
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /*background-image: url(../img/BG4.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;*/
+}
+
+.containers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+}
+
+.containers .left-container {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  background-color: #0a4068;
+  padding: 0;
+  height: 100vh;
+  text-align: center;
+}
+
+.containers .left-container .logo {
+  width: 25%;
+  margin-top: 50px;
+}
+
+.containers .left-container .content {
+  margin: 15% 5%;
+}
+
+.containers .left-container .content h2,
+.containers .left-container .content h3 {
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.containers .left-container .content h2 {
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.containers .left-container .content h3 {
+  font-weight: 300;
+  font-size: 25px;
+}
+
+.containers .left-container .content button {
+  width: 50%;
+  font-size: 20px;
+  border-radius: 50px;
+  height: 50px;
+  cursor: pointer;
+  background-color: #0a4068;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.containers .left-container .content button:hover {
+  background-color: #fff;
+  border: 1px solid #0a4068;
+  color: #0a4068;
+}
+
+.containers .right-container {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  padding: 0;
+  height: 100vh;
+  text-align: center;
+}
+
+.containers .right-container form {
+  width: 60%;
+  margin: 200px auto 0 auto;
+  text-align: center;
+}
+
+.containers .right-container form h1 {
+  color: #0a4068;
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+.containers .right-container form .error {
+  padding: 10px;
+  height: 40px;
+  width: 70%;
+  background-color: white;
+  color: #c22210;
+  margin: 15px auto 0 auto;
+  border-radius: 7px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  border: 1.5px solid #c22210;
+}
+
+.containers .right-container form input {
+  padding-left: 40px;
+  margin: 10px 1% 20px 0;
+  width: 100%;
+  height: 50px;
+  border: none;
+  border: 1.5px solid #0a4068;
+  border-radius: 7px;
+  color: #0a4068;
+  font-size: 15px;
+}
+
+.containers .right-container form input:focus {
+  outline: none;
+}
+
+.containers .right-container form input::-webkit-input-placeholder {
+  color: #0a4068;
+  opacity: 0.5;
+}
+
+.containers .right-container form input:-ms-input-placeholder {
+  color: #0a4068;
+  opacity: 0.5;
+}
+
+.containers .right-container form input::-ms-input-placeholder {
+  color: #0a4068;
+  opacity: 0.5;
+}
+
+.containers .right-container form input::placeholder {
+  color: #0a4068;
+  opacity: 0.5;
+}
+
+.containers .right-container form input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.containers .right-container form input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+.containers .right-container form input:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+.containers .right-container form input:focus::placeholder {
+  color: transparent;
+}
+
+.containers .right-container form input:focus + label {
+  position: absolute;
+  left: 0;
+  top: -15px;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  opacity: 0.7;
+}
+
+.containers .right-container form .form-username,
+.containers .right-container form .form-password,
+.containers .right-container form .form-email {
+  position: relative;
+}
+
+.containers .right-container form .form-username:before,
+.containers .right-container form .form-password:before,
+.containers .right-container form .form-email:before {
+  content: "";
+  font-family: FontAwesome;
+  font-weight: 600;
+  color: #0a4068;
+  position: absolute;
+  top: 25px;
+  left: 15px;
+}
+
+.containers .right-container form .form-username label,
+.containers .right-container form .form-password label,
+.containers .right-container form .form-email label {
+  position: absolute;
+  left: 0;
+  top: -15px;
+  opacity: 0;
+  color: #0a4068;
+}
+
+.containers .right-container form .form-email:before {
+  content: "";
+}
+
+.containers .right-container form .form-username:before {
+  content: "";
+}
+
+.containers .right-container form .form-password:before {
+  content: "";
+}
+
+.containers .right-container form button {
+  background-color: transparent;
+  border: 1.5px solid #0a4068;
+  width: 12%;
+  color: #0a4068;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  height: 50px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.containers .right-container form button:hover {
+  background-color: #0a4068;
+  color: white;
+}
+
+.containers .right-container form button:focus {
+  outline: none;
+}
+
+.containers .right-container form .visible-button {
+  border: 1.5px solid #0a4068;
+  color: #0a4068;
+}
+
+.containers .right-container form .visible-button:hover {
+  color: #fff;
+  background-color: #0a4068;
+}
+
+.containers .right-container form .visible-input {
+  width: 86%;
+}
+
+.containers .right-container form .send {
+  width: 50%;
+  font-size: 20px;
+  margin-bottom: 10px;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+.containers .right-container form .send span {
+  display: inline-block;
+  position: relative;
+}
+
+.containers .right-container form .send span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -8px;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+.containers .right-container form .send:hover span {
+  padding-right: 25px;
+}
+
+.containers .right-container form .send:hover span:after {
+  opacity: 1;
+  right: 0;
+  color: white;
+}
+
+.containers .right-container form .send:disabled:hover span {
+  padding-right: 0;
+}
+
+.containers .right-container form .send:disabled:hover span:after {
+  opacity: 0;
+  right: 0;
+}
+
+.containers .right-container form .send:disabled:hover {
+  cursor: not-allowed;
+  background-color: white;
+  color: #0a4068;
+}
+
+.containers .right-container form .forget {
+  text-decoration: none;
+  color: #0a4068;
+  font-size: 17px;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  display: inline-block;
+}
+
+.containers .right-container form .forget:hover {
+  opacity: 0.5;
+}
+
+/* Small Devices => Landscape Phones */
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+/* Medium Devices => Tablets */
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+/* All Devices Small Than Desktops */
+/* All Devices Small Than Tablets */
+/* Very Small Devices */
+/* Desktops */
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+/* Large Screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+/*# sourceMappingURL=log_reg.css.map */
