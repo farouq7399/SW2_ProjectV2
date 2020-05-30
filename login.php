@@ -13,7 +13,7 @@ if (isset($_POST['login'])) {
                         $token = bin2hex(openssl_random_pseudo_bytes(64, $cstrong));
                         $user_id = DB::query('SELECT id FROM users WHERE username=:username', array(':username'=>$username))[0]['id'];
                         DB::query('INSERT INTO login_tokens VALUES (\'\', :token, :user_id)', array(':token'=>sha1($token), ':user_id'=>$user_id));
-
+                        echo "success!";
                         setcookie("SNID", $token, time() + 60 * 60 * 24 * 7, '/', NULL, NULL, TRUE);
                         setcookie("SNID_", '1', time() + 60 * 60 * 24 * 3, '/', NULL, NULL, TRUE);
 
@@ -28,9 +28,46 @@ if (isset($_POST['login'])) {
 }
 
 ?>
-<h1>Login to your account</h1>
-<form action="login.php" method="post">
-<input type="text" name="username" value="" placeholder="Username ..."><p />
-<input type="password" name="password" value="" placeholder="Password ..."><p />
-<input type="submit" name="login" value="Login">
-</form>
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/log_reg.css">
+    <title>Sign in</title>
+  </head>
+  <body>
+    <div id="emad-app">
+      <div class="containers">
+        <div class="left-container"><img class="logo" src="img/logoWhite.png" alt="Logo">
+          <div class="content">
+            <h2>Welcome Back!</h2>
+            <h3>To keep connected with us, please login with your personal info.</h3><a href="html/registrationPage.html">
+              <button type="submit">Sign up</button></a>
+          </div>
+        </div>
+        <div class="right-container">
+          <form action="login.php" method="post" @submit="validateForm">
+            <h1>Sign in</h1>
+            <div class="form-username">
+              <input type="text" name="username" autocomplete="off" placeholder="Type Your Username" v-model="userName">
+              <Label>Your Username</Label>
+            </div>
+            <div class="form-password">
+              <input class="visible-input" :type="fieldType" autocomplete="off" name="password" placeholder="Type Your Password" v-model="password">
+              <Label>Your Password</Label>
+              <button class="visible-button" @click.prevent="switchField" @click="selected = !selected"><span v-if="!selected"><i class="fas fa-eye fa-s"></i></span><span v-else="selected"><i class="fas fa-eye-slash fa-s"></i></span></button>
+            </div>
+            <button class="send" type="submit" name="login" :disabled="!userName || !password"><span>Sign in</span></button><br><a class="forget" href="html/resetPasswordPage.html">Forgot your email or password?</a>
+            <div class="error" v-for="error in formErrors">{{ error }}</div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="js/website.js"></script>
+    <script src="https://kit.fontawesome.com/5c514b09fd.js" crossorigin="anonymous"></script>
+  </body>
+</html>
