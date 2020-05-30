@@ -42,48 +42,10 @@ if (isset($_POST['createaccount'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="css/log_reg.css">
-    <title>Sign up</title>
-  </head>
-  <body>
-    <div id="emad-app">
-      <div class="containers">
-        <div class="left-container"><img class="logo" src="img/logoWhite.png" alt="Logo">
-          <div class="content">
-            <h2>Hello, Friend!</h2>
-            <h3>Enter your personal info, to start a journey with us.</h3><a href="html/loginPage.html">
-              <button type="submit">Sign in</button></a>
-          </div>
-        </div>
-        <div class="right-container">
-          <form action="create-account.php" method="post" @submit="validateForm">
-            <h1>Sign up</h1>
-            <div class="form-email">
-              <input type="text" name="email" autocomplete="off" placeholder="someone@somesite.com" v-model="email">
-              <label>Your Email</label>
-            </div>
-            <div class="form-username">
-              <input type="text" name="username" autocomplete="off" placeholder="Type Your Username" v-model="userName">
-              <Label>Your Username</Label>
-            </div>
-            <div class="form-password">
-              <input class="visible-input" :type="fieldType" autocomplete="off" name="password" placeholder="Type Your Password" v-model="password">
-              <Label>Your Password</Label>
-              <button class="visible-button" name="createaccount" @click.prevent="switchField" @click="selected = !selected"><span v-if="!selected"><i class="fas fa-eye fa-s"></i></span><span v-else="selected"><i class="fas fa-eye-slash fa-s"></i></span></button>
-            </div>
-            <button class="send" type="submit" :disabled="!userName || !password"><span>Sign up</span></button><br>
-            <div class="error" v-for="error in formErrors">{{ error }}</div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <script src="js/vue.js"></script>
-    <script src="js/website.js"></script>
-    <script src="https://kit.fontawesome.com/5c514b09fd.js" crossorigin="anonymous"></script>
-  </body>
-</html>
+<form action="create-account.php" method="post">
+<input type="text" name="username" value="" placeholder="Username ..."> <p />
+<input type="password" name="password" value="" placeholder="Password ..."> <p />
+<input type="email" name="email" value="" placeholder="Someone@somesite.com"> <p />
+<input type="submit" name="createaccount" value="Create Account">
+
+  </form>
