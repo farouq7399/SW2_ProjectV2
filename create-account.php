@@ -54,14 +54,14 @@ if (isset($_POST['createaccount'])) {
   <body>
     <div id="emad-app">
       <div class="containers">
-        <div class="left-container"><img class="logo" src="img/logoWhite.png" alt="Logo">
+        <div class="left-container">
           <div class="content">
             <h2>Hello, Friend!</h2>
-            <h3>Enter your personal info, to start a journey with us.</h3><a href="html/loginPage.html">
+            <h3>Enter your personal info, to start a journey with us.</h3><a href="login.php">
               <button type="submit">Sign in</button></a>
           </div>
         </div>
-        <div class="right-container">
+        <div class="right-container"><img class="logo" src="img/logo2.png" alt="Logo">
           <form action="create-account.php" method="post" @submit="validateForm">
             <h1>Sign up</h1>
             <div class="form-email">

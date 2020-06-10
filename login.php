@@ -9,6 +9,7 @@ if (isset($_POST['login'])) {
 
                 if (password_verify($password, DB::query('SELECT password FROM users WHERE username=:username', array(':username'=>$username))[0]['password'])) {
                         echo 'Logged in!';
+                          header('Location: http://localhost/Version2-master/index.php');
                         $cstrong = True;
                         $token = bin2hex(openssl_random_pseudo_bytes(64, $cstrong));
                         $user_id = DB::query('SELECT id FROM users WHERE username=:username', array(':username'=>$username))[0]['id'];
@@ -16,6 +17,8 @@ if (isset($_POST['login'])) {
                         echo "success!";
                         setcookie("SNID", $token, time() + 60 * 60 * 24 * 7, '/', NULL, NULL, TRUE);
                         setcookie("SNID_", '1', time() + 60 * 60 * 24 * 3, '/', NULL, NULL, TRUE);
+
+
 
                 } else {
                         echo 'Incorrect Password!';
@@ -41,14 +44,14 @@ if (isset($_POST['login'])) {
   <body>
     <div id="emad-app">
       <div class="containers">
-        <div class="left-container"><img class="logo" src="img/logoWhite.png" alt="Logo">
+        <div class="left-container">
           <div class="content">
             <h2>Welcome Back!</h2>
-            <h3>To keep connected with us, please login with your personal info.</h3><a href="html/registrationPage.html">
+            <h3>To keep connected with us, please login with your personal info.</h3><a href="create-account.php">
               <button type="submit">Sign up</button></a>
           </div>
         </div>
-        <div class="right-container">
+        <div class="right-container"><img class="logo" src="img/logo2.png" alt="Logo">
           <form action="login.php" method="post" @submit="validateForm">
             <h1>Sign in</h1>
             <div class="form-username">
@@ -60,7 +63,7 @@ if (isset($_POST['login'])) {
               <Label>Your Password</Label>
               <button class="visible-button" @click.prevent="switchField" @click="selected = !selected"><span v-if="!selected"><i class="fas fa-eye fa-s"></i></span><span v-else="selected"><i class="fas fa-eye-slash fa-s"></i></span></button>
             </div>
-            <button class="send" type="submit" name="login" :disabled="!userName || !password"><span>Sign in</span></button><br><a class="forget" href="html/resetPasswordPage.html">Forgot your email or password?</a>
+            <button class="send" type="submit" name="login" :disabled="!userName || !password"><span>Sign in</span></button><br><a class="forget" href="forgot-password.php">Forgot your email or password?</a>
             <div class="error" v-for="error in formErrors">{{ error }}</div>
           </form>
         </div>

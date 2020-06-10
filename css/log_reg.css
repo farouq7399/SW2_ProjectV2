@@ -33,10 +33,6 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  /*background-image: url(../img/BG4.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;*/
 }
 
 .containers {
@@ -56,13 +52,8 @@ body {
   text-align: center;
 }
 
-.containers .left-container .logo {
-  width: 25%;
-  margin-top: 50px;
-}
-
 .containers .left-container .content {
-  margin: 15% 5%;
+  margin: 50% 5% 0;
 }
 
 .containers .left-container .content h2,
@@ -107,9 +98,14 @@ body {
   text-align: center;
 }
 
+.containers .right-container .logo {
+  width: 15%;
+  margin-top: 50px;
+}
+
 .containers .right-container form {
   width: 60%;
-  margin: 200px auto 0 auto;
+  margin: 20px auto 0 auto;
   text-align: center;
 }
 
@@ -120,15 +116,15 @@ body {
 }
 
 .containers .right-container form .error {
-  padding: 10px;
-  height: 40px;
+  padding: 5px;
+  height: 30px;
   width: 70%;
   background-color: white;
   color: #c22210;
-  margin: 15px auto 0 auto;
+  margin: 10px auto 0 auto;
   border-radius: 7px;
   text-align: center;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
   border: 1.5px solid #c22210;
 }

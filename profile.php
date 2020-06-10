@@ -51,6 +51,7 @@ if (isset($_GET['username'])) {
                 //posting body
                 if (isset($_POST['post'])) {
                         $postbody = $_POST['postbody'];
+                        $postbody = $_POST['postbody'];
                         $loggedInUserId = Login::isLoggedIn();
 
                         if (strlen($postbody) > 160 || strlen($postbody) < 1) {
@@ -106,24 +107,42 @@ if (isset($_GET['username'])) {
         }
 }
 
-?>
-<h1><?php echo $username; ?>'s Profile<?php if ($verified) { echo ' - Verified'; } ?></h1>
-<form action="profile.php?username=<?php echo $username; ?>" method="post">
-        <?php
-        if ($userid != $followerid) {
-                if ($isFollowing) {
-                        echo '<input type="submit" name="unfollow" value="Unfollow">';
-                } else {
-                        echo '<input type="submit" name="follow" value="Follow">';
-                }
-        }
-        ?>
-</form>
-<form action="profile.php?username=<?php echo $username; ?>" method="post">
-        <textarea name="postbody" rows="8" cols="80"></textarea>
-        <input type="submit" name="post" value="Post">
-</form>
 
-<div class="posts">
-        <?php echo $posts; ?>
-</div>
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/profile.css">
+    <title>Profile</title>
+  </head>
+  <body>
+    <div id="emad-app">
+      <div class="page-content">
+        <header>
+          <h1 class="name"><?php echo $username; ?>'s Profile<?php if ($verified) { echo ' - Verified'; } ?></h1>
+          <div class="logout">Logout<i class="fas fa-sign-out-alt"></i></div>
+        </header>
+        <div class="containers">
+          <div class="about">
+            <h2>About Me</h2>
+            <p>Welocme to my profile.</p>
+          </div>
+          <div class="right">
+            <div class="new-post">
+              <button class="add-post" v-on:click="addForm">NEW POST</button>
+            </div>
+            <div class="post">
+              <new-post v-for="(n, index) in range" :key="index" :title="title" :content="content" :author="author"></new-post>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="js/website.js"></script>
+    <script src="https://kit.fontawesome.com/5c514b09fd.js" crossorigin="anonymous"></script>
+  </body>
+</html>

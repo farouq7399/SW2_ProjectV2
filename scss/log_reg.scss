@@ -1,6 +1,5 @@
 @import "variables";
 @import "extends";
-//@import "header";
 @import "mixins";
 
 * {
@@ -11,11 +10,8 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  /*background-image: url(../img/BG4.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;*/
 }
+
 .containers {
   display: flex;
   margin: 0 auto;
@@ -25,12 +21,8 @@ body {
     padding: 0;
     height: 100vh;
     text-align: center;
-    .logo {
-      width: 25%;
-      margin-top: 50px;
-    }
     .content {
-      margin: 15% 5%;
+      margin: 50% 5% 0;
       h2,
       h3 {
         color: #fff;
@@ -67,9 +59,13 @@ body {
     padding: 0;
     height: 100vh;
     text-align: center;
+    .logo {
+      width: 15%;
+      margin-top: 50px;
+    }
     form {
       width: 60%;
-      margin: 200px auto 0 auto;
+      margin: 20px auto 0 auto;
       text-align: center;
       h1 {
         color: $blues;
@@ -77,15 +73,15 @@ body {
         margin-bottom: 20px;
       }
       .error {
-        padding: 10px;
-        height: 40px;
+        padding: 5px;
+        height: 30px;
         width: 70%;
         background-color: white;
         color: $reds;
-        margin: 15px auto 0 auto;
+        margin: 10px auto 0 auto;
         border-radius: $borderRd;
         text-align: center;
-        font-size: 15px;
+        font-size: 13px;
         font-weight: 600;
         border: 1.5px solid $reds;
         @extend %transition;

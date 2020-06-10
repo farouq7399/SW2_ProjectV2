@@ -1,0 +1,252 @@
+@import "variables";
+@import "extends";
+@import "mixins";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+}
+
+header {
+  width: 80%;
+  margin: 20px auto;
+
+  .name {
+    font-size: 30px;
+    font-weight: bold;
+    color: $blues;
+    display: inline-block;
+  }
+
+  .logout {
+    float: right;
+    font-size: 20px;
+    color: $reds;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+
+    i {
+      margin-left: 5px;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.containers {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+
+  .about {
+    flex: 1;
+    padding: 15px;
+    border: 1.5px solid #eee;
+    height: 200px;
+    border-radius: 5px;
+    text-align: center;
+
+    h2 {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    p {
+      margin: 10px;
+      line-height: 30px;
+    }
+  }
+
+  .right {
+    flex: 3;
+    margin-left: 20px;
+
+    .new-post {
+      margin-bottom: 20px;
+
+      .add-post {
+        background-color: $blues;
+        width: 100%;
+        color: #fff;
+        border: none;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 5px;
+        opacity: 0.95;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 1;
+          transform: scale(0.99);
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .no-posts {
+        padding: 15px;
+        font-size: 18px;
+        border: 1.5px solid #ddd;
+        border-radius: 5px;
+      }
+    }
+
+    .post {
+      .post-box {
+        border: 1.5px solid #ddd;
+        border-radius: 5px;
+        padding: 15px 15px 60px;
+        margin-bottom: 20px;
+        box-shadow: 4px 4px 10px 5px rgba(0, 0, 0, 0.03);
+
+        form {
+          border-radius: 5px;
+          margin-bottom: -40px;
+
+          input,
+          textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1.5px solid rgba($color: #eee, $alpha: 1);
+            padding: 10px;
+            font-size: 15px;
+            transition: 0.5s ease-in-out;
+
+            &:focus {
+              border: 1px solid $blues;
+              outline: none;
+            }
+
+            &::placeholder {
+              font-size: 12px;
+              font-weight: 400;
+            }
+          }
+
+          input {
+            height: 40px;
+
+            &[type="submit"] {
+              background-color: #fff;
+              color: $blues;
+              font-size: 17px;
+              cursor: pointer;
+              border: 1px solid $blues;
+              transition: 0.5s ease-in-out;
+
+              &:hover {
+                background-color: $blues;
+                color: #fff;
+                transform: scale(0.99);
+              }
+
+              &:disabled {
+                background-color: $blues;
+                color: #fff;
+                cursor: not-allowed;
+                opacity: 0.5;
+                transform: scale(1);
+              }
+            }
+          }
+
+          textarea {
+            height: 80px;
+            resize: none;
+          }
+
+          .remaining {
+            font-size: 15px;
+          }
+        }
+
+        .title {
+          color: $blues;
+          margin-bottom: 10px;
+          font-size: 25px;
+          font-weight: bold;
+          width: 70%;
+          display: inline-block;
+        }
+
+        .post-body {
+
+          .delete-button,
+          .edit-button {
+            width: 10%;
+            height: 30px;
+            color: #fff;
+            padding: 3px;
+            margin-top: 10px;
+            float: right;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0.9;
+            transition: 0.3s ease-in-out;
+            bottom: 0;
+
+            &:hover {
+              opacity: 1;
+            }
+
+            &:focus {
+              outline: 0;
+            }
+          }
+
+          .delete-button {
+            background-color: $reds;
+          }
+
+          .edit-button {
+            background-color: $greys;
+          }
+        }
+      }
+
+      .post-date {
+        color: $greys;
+        margin-bottom: 10px;
+      }
+
+      .content {
+        margin-bottom: 10px;
+      }
+
+      .likes {
+        color: $reds;
+        font-weight: 500;
+        font-size: 18px;
+        float: left;
+        margin-top: 14px;
+        cursor: pointer;
+
+        span {
+          margin-left: 10px;
+        }
+      }
+
+      .author {
+        float: right;
+        font-size: 15px;
+        background-color: $blues;
+        color: #fff;
+        border-radius: 5px;
+        padding: 8px;
+        margin-top: 8px;
+      }
+    }
+  }
+}
