@@ -20,7 +20,7 @@ Vue.component("newPost", {
                   <form action="profile.php?username=<?php echo $username; ?>" method="post">
                     <h2 class="title">What is in your mind?!</h2><br>
                     <input type="text" v-model="title" placeholder="Title of the post .."><br>
-                    <textareaname="postbody"  for="content" placeholder="Content of the post .."
+                    <textarea name="postbody"  for="content" placeholder="Content of the post .."
                     maxlength="200" v-on:keyup="liveCountDown" v-model="postContent"></textarea><br>
                     <p class="remaining" :style="{color: generateErr ? '#c22210' : '#0a4068'}">Remaining characters: <span>{{totalRemainCount}}</span></p><br>
                     <input type="submit" name="post" value="SUBMIT" :disabled="!title || !postContent" @click.prevent="createPost">
